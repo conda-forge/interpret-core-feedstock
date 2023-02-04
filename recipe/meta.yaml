@@ -19,10 +19,14 @@ source:
 build:
   number: 0
   skip: True  # [py>=39 or py2k or py<37]
+  script: cd ./python/interpret-core/js/ && npm install && npm run build-prod
+  script: ls -R
+  script: dir /s
+  script: pwd
+  script: cd
   script: xcopy /E shared\* python\interpret-core\symbolic\shared\ && xcopy build.* python\interpret-core\symbolic\  # [win]
   script: cp -r shared/* python/interpret-core/symbolic/shared/ && cp build.* python/interpret-core/symbolic/  # [not win]
-  script: ls -R
-  script: cd ./python/scripts/ {{ PYTHON }} build-js-bundles.py devops
+  # script: cd ./python/scripts/ && {{ PYTHON }} build-js-bundles.py devops
   script: cd ./python/interpret-core/ && {{ PYTHON }} setup.py build && {{ PYTHON }} setup.py install
 
 requirements:
