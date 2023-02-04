@@ -20,12 +20,14 @@ build:
   number: 0
   skip: True  # [py>=39 or py2k or py<37]
   script: cd ./python/interpret-core/js/ && npm install && npm run build-prod
+  script: ./build.sh  # [not win]
+  script: ./build.bat  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - nodejs
+    - nodejs ==16.*
   host:
     - python
     - setuptools
