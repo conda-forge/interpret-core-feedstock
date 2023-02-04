@@ -19,20 +19,19 @@ source:
 build:
   number: 0
   skip: True  # [py>=39 or py2k or py<37]
-  script: xcopy /E /I shared python\interpret-core\symbolic\shared  # [win]
-  script: cp -r shared python/interpret-core/symbolic/shared  # [not win]
-  script: {{ PYTHON }} -m pip install ./python/interpret-core -vv
+  script: xcopy /E shared\* python\interpret-core\symbolic\shared\ && xcopy build.* python\interpret-core\symbolic\ # [win]
+  script: cp -r shared/* python/interpret-core/symbolic/shared/ && cp build.* python/interpret-core/symbolic/ # [not win]
+  script: cd ./python/interpret-core/ && {{ PYTHON }} setup.py build && {{ PYTHON }} setup.py install
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - nodejs
   host:
     - python
-    - pip
     - setuptools
     - wheel
-    - nodejs
   run:
     - python
   run_constrained:
