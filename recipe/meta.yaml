@@ -7,7 +7,7 @@ package:
 
 source:
   # curl -sL https://github.com/username/reponame/archive/.tar.gz | openssl sha256
-  sha256: 0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5
+  sha256: f9b3123754fa7f0f91aad5f6c0afaa9b3841e466b24fa441da80b292c398ee91
   url: https://github.com/interpretml/interpret/archive/19b0188c841a67a8fa7bf42347d00d81bcca472b.tar.gz
   # url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   # url: https://github.com/interpretml/interpret/releases/download/{{ version }}/interpret-core-{{ version }}.tar.gz
@@ -18,7 +18,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [py>=39 or py2k or py<37]
+  #skip: True  # [py>=39 or py2k or py<37]
   script: sh ./build.sh && cd ./python/interpret-core/js/ && npm install && npm run build-prod && cd .. && {{ PYTHON }} -m pip install . -vv  # [not win]
   script: .\build.bat && cd .\python\interpret-core\js\ && npm install && npm run build-prod && cd .. && {{ PYTHON }} -m pip install . -vv  # [win]
 
@@ -27,12 +27,13 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - python
+    - python >=3.7.*
     - setuptools
     - wheel
+    # specifying nodejs ==* prevents us from building it 3 times for different versions of nodejs (after running @conda-forge-admin please rerender)
     - nodejs ==*
   run:
-    - python
+    - python >=3.7.*
   run_constrained:
     # in setup.py
     - setuptools
