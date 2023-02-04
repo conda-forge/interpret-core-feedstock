@@ -7,8 +7,8 @@ package:
 
 source:
   # curl -sL https://github.com/username/reponame/archive/.tar.gz | openssl sha256
-  sha256: 7ed6908891f164ad50e3728f61b72516e46f07079e6b3f7b731fafb82c80195b
-  url: https://github.com/interpretml/interpret/archive/8fb6ba5c357629a77dc12c61f21c9cf439701448.tar.gz
+  sha256: 0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5
+  url: https://github.com/interpretml/interpret/archive/19b0188c841a67a8fa7bf42347d00d81bcca472b.tar.gz
   # url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   # url: https://github.com/interpretml/interpret/releases/download/{{ version }}/interpret-core-{{ version }}.tar.gz
   # url: https://github.com/interpretml/interpret/archive/v{{ version }}.tar.gz
@@ -19,8 +19,8 @@ source:
 build:
   number: 0
   skip: True  # [py>=39 or py2k or py<37]
-  script: sh ./build.sh && cd ./python/interpret-core/js/ && npm install && npm run build-prod  # [not win]
-  script: .\build.bat && cd .\python\interpret-core\js\ && npm install && npm run build-prod  # [win]
+  script: sh ./build.sh && cd ./python/interpret-core/js/ && npm install && npm run build-prod && cd .. && {{ PYTHON }} -m pip install . -vv  # [not win]
+  script: .\build.bat && cd .\python\interpret-core\js\ && npm install && npm run build-prod && cd .. && {{ PYTHON }} -m pip install . -vv  # [win]
 
 requirements:
   build:
@@ -30,7 +30,7 @@ requirements:
     - python
     - setuptools
     - wheel
-    - nodejs ==16.*
+    - nodejs
   run:
     - python
   run_constrained:
