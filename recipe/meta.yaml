@@ -27,12 +27,12 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - nodejs
   host:
     - python
     - pip
     - setuptools
     - wheel
+    - nodejs
   run:
     - python
   run_constrained:
@@ -108,6 +108,7 @@ about:
 
     https://github.com/interpretml/interpret
   license: MIT
+  license_file: LICENSE
   doc_url: https://interpret.ml/docs/getting-started
   dev_url: https://interpret.ml/docs/installation-guide.html
 
