@@ -20,7 +20,7 @@ build:
   number: 0
   skip: True  # [py>=39 or py2k or py<37]
   script: sh ./build.sh && cd ./python/interpret-core/js/ && npm install && npm run build-prod  # [not win]
-  script: ./build.bat && cd ./python/interpret-core/js/ && npm install && npm run build-prod  # [win]
+  script: .\build.bat && cd .\python\interpret-core\js\ && npm install && npm run build-prod  # [win]
 
 requirements:
   build:
