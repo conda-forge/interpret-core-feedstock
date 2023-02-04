@@ -30,7 +30,7 @@ requirements:
     - python
     - setuptools
     - wheel
-    - nodejs
+    - nodejs ==*
   run:
     - python
   run_constrained:
