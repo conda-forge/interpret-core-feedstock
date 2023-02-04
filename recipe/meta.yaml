@@ -19,19 +19,18 @@ source:
 build:
   number: 0
   skip: True  # [py>=39 or py2k or py<37]
-  script: cd ./python/interpret-core/js/ && npm install && npm run build-prod
-  script: ./build.sh  # [not win]
-  script: ./build.bat  # [win]
+  script: cd ./python/interpret-core/js/ && npm install && npm run build-prod && sh ./build.sh  # [not win]
+  script: cd ./python/interpret-core/js/ && npm install && npm run build-prod && ./build.bat  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - nodejs ==16.*
   host:
     - python
     - setuptools
     - wheel
+    - nodejs ==16.*
   run:
     - python
   run_constrained:
