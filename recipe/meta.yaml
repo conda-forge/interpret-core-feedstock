@@ -27,13 +27,13 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - python >=3.7.*
+    - python
     - setuptools
     - wheel
     # specifying nodejs ==* prevents us from building it 3 times for different versions of nodejs (after running @conda-forge-admin please rerender)
     - nodejs ==*
   run:
-    - python >=3.7.*
+    - python
   run_constrained:
     # in setup.py
     - setuptools
