@@ -6,9 +6,9 @@ package:
   version: {{ version }}
 
 source:
-  # curl -sL https://github.com/username/reponame/archive/.tar.gz | openssl sha256
-  sha256: f9b3123754fa7f0f91aad5f6c0afaa9b3841e466b24fa441da80b292c398ee91
-  url: https://github.com/interpretml/interpret/archive/19b0188c841a67a8fa7bf42347d00d81bcca472b.tar.gz
+  url: https://github.com/interpretml/interpret/archive/ef3eb84dff3931001547ae9e4064eac9a9239787.tar.gz
+  # curl -sL https://github.com/interpretml/interpret/archive/ef3eb84dff3931001547ae9e4064eac9a9239787.tar.gz | openssl sha256
+  sha256: 3e99743a6b450c519e638d8f4418829de80d470677d7d3cc3c143a391a035289
   # url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   # url: https://github.com/interpretml/interpret/releases/download/{{ version }}/interpret-core-{{ version }}.tar.gz
   # url: https://github.com/interpretml/interpret/archive/v{{ version }}.tar.gz
