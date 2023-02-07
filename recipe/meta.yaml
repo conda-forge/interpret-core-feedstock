@@ -22,12 +22,12 @@ requirements:
     # specifying nodejs ==* prevents us from building it 3 times for different versions of nodejs (after running @conda-forge-admin please rerender)
     - nodejs ==16.*
   host:
-    - python <=3.10.* # shap not on 3.11 yet
+    - python
     - pip
     - setuptools
     - wheel
   run:
-    - python <=3.10.* # shap not on 3.11 yet
+    - python
 
 test:
   requires:
