@@ -12,7 +12,7 @@ source:
   # url: https://github.com/interpretml/interpret/archive/v{{ version }}.tar.gz
 
 build:
-  number: 1
+  number: 2
   script: cd ./python/interpret-core/ && {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -73,6 +73,7 @@ test:
     - interpret
   commands:
     - pip check
+    - pytest
 
 about:
   home: https://github.com/interpretml/interpret
