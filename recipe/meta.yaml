@@ -76,8 +76,8 @@ test:
   commands:
     - pip check
     - ls
-    - pytest
-    #- pytest --pyargs interpret-core
+    #- pytest
+    - pytest --pyargs interpret
 
 about:
   home: https://github.com/interpretml/interpret
