@@ -72,12 +72,14 @@ test:
   imports:
     - interpret
   source_files:
+    - *.md
     - python/interpret-core/interpret/glassbox/ebm/test/test_*.py
   commands:
     - pip check
     - ls
     #- pytest
-    - pytest --pyargs interpret
+    #- pytest --pyargs interpret
+    - python -m pytest --pyargs interpret -vv -n auto --runslow --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 
 about:
   home: https://github.com/interpretml/interpret
