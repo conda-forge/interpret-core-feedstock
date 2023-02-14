@@ -6,9 +6,9 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/interpretml/interpret/archive/3cac98949c9f8576d27ad723c643d1e7e02ddad2.tar.gz
-  # curl -sL https://github.com/interpretml/interpret/archive/3cac98949c9f8576d27ad723c643d1e7e02ddad2.tar.gz | openssl sha256
-  sha256: 2b89ad5f4719e0e82b8dc14ff4b81ed549f27f98588f9f2c983e411748fdb4f7
+  url: https://github.com/interpretml/interpret/archive/7e5f94d3a3d946bdffe1b4124036f43dd45b44dc.tar.gz
+  # curl -sL https://github.com/interpretml/interpret/archive/7e5f94d3a3d946bdffe1b4124036f43dd45b44dc.tar.gz | openssl sha256
+  sha256: d52a4b7868697fcdd021242d7fedf662d3a1533a50168750510ef63eadd1f945
   # url: https://github.com/interpretml/interpret/archive/v{{ version }}.tar.gz
 
 build:
@@ -72,11 +72,10 @@ test:
   imports:
     - interpret
   source_files:
-    - *.md
     - python/interpret-core/interpret/glassbox/ebm/test/test_*.py
   commands:
     - pip check
-    - ls -R
+    - ls
     - pytest
     #- pytest --pyargs interpret-core
 
