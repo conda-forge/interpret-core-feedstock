@@ -73,6 +73,7 @@ test:
     - interpret
   commands:
     - pip check
+    - ls -R
     - pytest
 
 about:
