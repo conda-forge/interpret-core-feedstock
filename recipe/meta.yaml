@@ -72,7 +72,6 @@ test:
   imports:
     - interpret
   source_files:
-    - *.md
     - python/interpret-core/interpret/glassbox/ebm/test/test_*.py
   commands:
     - pip check
