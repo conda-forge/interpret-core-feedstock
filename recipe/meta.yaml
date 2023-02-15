@@ -6,9 +6,9 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/interpretml/interpret/archive/db341600f702606c222039e942d2186f49541789.tar.gz
-  # curl -sL https://github.com/interpretml/interpret/archive/db341600f702606c222039e942d2186f49541789.tar.gz | openssl sha256
-  sha256: e16a1e25719d72bc93284fd1411e5c43dca5880eaeb4d60764542ae961fcec9f
+  url: https://github.com/interpretml/interpret/archive/200f9c3f08da6f17bdbeaee0e3285a2458f92f18.tar.gz
+  # curl -sL https://github.com/interpretml/interpret/archive/200f9c3f08da6f17bdbeaee0e3285a2458f92f18.tar.gz | openssl sha256
+  sha256: e61f014fb24f0dae58e4099f6affd15713928e66eab5078892e546b704920b8b
   # url: https://github.com/interpretml/interpret/archive/v{{ version }}.tar.gz
 
 build:
@@ -73,7 +73,7 @@ test:
     - interpret
   commands:
     # - pip check
-    - pip list
+    # - pip list
     - python -m pytest --pyargs interpret -vv -n auto --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 
 about:
