@@ -1,33 +1,33 @@
 {% set name = "interpret-core" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/interpretml/interpret/archive/200f9c3f08da6f17bdbeaee0e3285a2458f92f18.tar.gz
-  # curl -sL https://github.com/interpretml/interpret/archive/200f9c3f08da6f17bdbeaee0e3285a2458f92f18.tar.gz | openssl sha256
-  sha256: e61f014fb24f0dae58e4099f6affd15713928e66eab5078892e546b704920b8b
+  url: https://github.com/interpretml/interpret/archive/dd39d39f854506064b4305535292b6566ff84c63.tar.gz
+  # curl -sL https://github.com/interpretml/interpret/archive/dd39d39f854506064b4305535292b6566ff84c63.tar.gz | openssl sha256
+  sha256: 976dafd9a1a527bb1c90d4b931eaac7cb279c08e6ec29a74a3c89910a0f0f344
   # url: https://github.com/interpretml/interpret/archive/v{{ version }}.tar.gz
 
 build:
-  number: 2
+  number: 0
+  noarch: python
   script: cd ./python/interpret-core/ && {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
     # specifying nodejs ==* prevents us from building it 3 times for different versions of nodejs (after running @conda-forge-admin please rerender)
     - nodejs ==16.*
   host:
-    - python  {{ python }}
+    - python >=3.7.*
     - pip
     - setuptools
     - wheel
   run:
-    - python  {{ python }}
+    - python >=3.7.*
+    - libebm =={{ version }}
 
 test:
   requires:
@@ -72,9 +72,9 @@ test:
   imports:
     - interpret
   commands:
-    # - pip check
+    - pip check
     # - pip list
-    - python -m pytest --pyargs interpret -vv -n auto --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
+    # - python -m pytest --pyargs interpret -vv -n auto --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 
 about:
   home: https://github.com/interpretml/interpret
