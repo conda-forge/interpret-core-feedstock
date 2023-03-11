@@ -6,9 +6,9 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/interpretml/interpret/archive/dd39d39f854506064b4305535292b6566ff84c63.tar.gz
-  # curl -sL https://github.com/interpretml/interpret/archive/dd39d39f854506064b4305535292b6566ff84c63.tar.gz | openssl sha256
-  sha256: 976dafd9a1a527bb1c90d4b931eaac7cb279c08e6ec29a74a3c89910a0f0f344
+  url: https://github.com/interpretml/interpret/archive/0895eb56e37b7a2045e34bc5cdb3679419002da4.tar.gz
+  # curl -sL https://github.com/interpretml/interpret/archive/0895eb56e37b7a2045e34bc5cdb3679419002da4.tar.gz | openssl sha256
+  sha256: d8762a8b2a09dce9f9876ec9bd70ff1ab33ead449c2054e2c21a66807a79d56b
   # url: https://github.com/interpretml/interpret/archive/v{{ version }}.tar.gz
 
 build:
