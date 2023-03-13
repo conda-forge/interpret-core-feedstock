@@ -6,10 +6,9 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/interpretml/interpret/archive/0895eb56e37b7a2045e34bc5cdb3679419002da4.tar.gz
-  # curl -sL https://github.com/interpretml/interpret/archive/0895eb56e37b7a2045e34bc5cdb3679419002da4.tar.gz | openssl sha256
-  sha256: d8762a8b2a09dce9f9876ec9bd70ff1ab33ead449c2054e2c21a66807a79d56b
-  # url: https://github.com/interpretml/interpret/archive/v{{ version }}.tar.gz
+  url: https://github.com/interpretml/interpret/archive/0b22c1d6de32fefd6cdfaadbe7762ffd536c1d10.tar.gz
+  # curl -sL https://github.com/interpretml/interpret/archive/0b22c1d6de32fefd6cdfaadbe7762ffd536c1d10.tar.gz | openssl sha256
+  sha256: 32093001b384f6fcca88231abe79b359df4110f76164056e1d7428585cba0779
 
 build:
   number: 0
@@ -18,13 +17,12 @@ build:
 
 requirements:
   build:
-    # specifying nodejs ==* prevents us from building it 3 times for different versions of nodejs (after running @conda-forge-admin please rerender)
+    # specifying nodejs ==x.* prevents us from building it 3 times for different versions of nodejs
     - nodejs ==16.*
   host:
     - python >=3.7.*
     - pip
     - setuptools
-    - wheel
   run:
     - python >=3.7.*
     - libebm =={{ version }}
@@ -35,7 +33,6 @@ test:
     - pip
     # in setup.py
     - setuptools
-    - wheel
     # Equiv. to required.
     - numpy >=1.11.1
     - scipy >=0.18.1
@@ -78,9 +75,9 @@ test:
 
 about:
   home: https://github.com/interpretml/interpret
-  summary: Fit interpretable machine learning models. Explain blackbox machine learning.
+  summary: Fit interpretable models. Explain blackbox machine learning.
   description: |
-    Core system for **the** interpret package.
+    Core system for the interpret package.
 
     https://github.com/interpretml/interpret
   license: MIT
