@@ -7,13 +7,13 @@ Home: https://github.com/interpretml/interpret
 
 Package license: MIT
 
-Summary: Fit interpretable machine learning models. Explain blackbox machine learning.
+Summary: Fit interpretable models. Explain blackbox machine learning.
 
 Development: https://interpret.ml/docs/installation-guide.html
 
 Documentation: https://interpret.ml/docs/getting-started
 
-Core system for **the** interpret package.
+Core system for the interpret package.
 
 https://github.com/interpretml/interpret
 
