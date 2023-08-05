@@ -72,7 +72,7 @@ test:
     - interpret
   # commands:
     # - pip check
-    - pip list
+    # - pip list
     - python -m pytest -vv -n auto --junitxml=junit/test-results.xml --cov=interpret --cov-report=xml --cov-report=html python/interpret-core/tests
 
 about:
