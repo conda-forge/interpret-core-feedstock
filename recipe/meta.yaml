@@ -79,7 +79,7 @@ about:
   home: https://github.com/interpretml/interpret
   summary: Fit interpretable models. Explain blackbox machine learning.
   description: |
-    Core system for the interpret package.
+    Minimal dependency core system for the interpret package.
 
     https://github.com/interpretml/interpret
   license: MIT
