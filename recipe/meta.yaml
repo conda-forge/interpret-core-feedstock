@@ -1,5 +1,6 @@
 {% set name = "interpret-core" %}
 {% set version = "0.6.6" %}
+{% set python_min = "3.8" %}
 
 package:
   name: {{ name|lower }}
@@ -19,11 +20,11 @@ requirements:
     # specifying nodejs ==x.* prevents us from building it 3 times for different versions of nodejs
     - nodejs ==16.*
   host:
-    - python >=3.8.*
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.8.*
+    - python >= {{ python_min }}
     - libebm =={{ version }}
     - numpy >=1.11.1
     - scipy >=0.18.1
@@ -33,6 +34,7 @@ requirements:
 
 test:
   requires:
+    - python {{ python_min }}
     # for pip check
     - pip
     # Equiv. to extras.
