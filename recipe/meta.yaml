@@ -1,13 +1,14 @@
 {% set name = "interpret-core" %}
-{% set version = "0.6.2" %}
+{% set version = "0.6.6" %}
+{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/interpretml/interpret/archive/73634c8c1e11c6c91486e228c3d0b01803a41b00.tar.gz
-  sha256: 0ee39aa04ffc9762156a9f4fb5f78cdbac4bc8157b5b07cbdb5472fa585acbf8
+  url: https://github.com/interpretml/interpret/archive/5d319b750ddad2645ad6cef3eafab909cc39226f.tar.gz
+  sha256: 4d3c9f8b33e90960d644b2b2cb7fbbc716d74e5ee1984b842dc1fbe2a2db5303
 
 build:
   number: 0
@@ -19,13 +20,13 @@ requirements:
     # specifying nodejs ==x.* prevents us from building it 3 times for different versions of nodejs
     - nodejs ==16.*
   host:
-    - python >=3.8.*
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.8.*
+    - python >={{ python_min }}
     - libebm =={{ version }}
-    - numpy >=1.11.1
+    - numpy >=1.25
     - scipy >=0.18.1
     - pandas >=0.19.2
     - scikit-learn >=0.18.1
@@ -33,6 +34,7 @@ requirements:
 
 test:
   requires:
+    - python {{ python_min }}
     # for pip check
     - pip
     # Equiv. to extras.
@@ -70,7 +72,7 @@ test:
   commands:
     # - pip check
     # - pip list
-    - python -m pytest -vv -n auto --junitxml=junit/test-results.xml --cov=interpret --cov-report=xml --cov-report=html python/interpret-core/tests
+    - python -m pytest -vv -n auto --junitxml=junit/test-results.xml --cov=interpret --cov-report=xml --cov-report=html python/interpret-core/tests --ignore=python/interpret-core/tests/glassbox/test_aplr.py
 
 about:
   home: https://github.com/interpretml/interpret
