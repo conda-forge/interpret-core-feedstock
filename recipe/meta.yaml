@@ -11,7 +11,7 @@ source:
   sha256: 96ef2819abe151b4cf4ebd2882e3b091d751d5e185a9d44c25d1ed538b39553a
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: cd ./python/interpret-core/ && {{ PYTHON }} -m pip install . -vv
 
@@ -47,7 +47,7 @@ test:
     - dill >=0.2.5
     # - skope-rules >=1.0.1   fails in python 3.10
     # - treeinterpreter >=0.2.2
-    - dash >=2.0.0, <3.0.0
+    - dash >=2.0.0,<3.0.0
     - dash_cytoscape >=0.1.1
     - gevent >=1.3.6
     - requests >=2.19.0
